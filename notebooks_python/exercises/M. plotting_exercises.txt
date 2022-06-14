@@ -1,0 +1,50 @@
+-----------------------------------
+Part 1 - California Housing Dataset
+-----------------------------------
+Exercise 0 - Data Load
+- Download the california housing dataset. You can do this by:
+  from sklearn.datasets import fetch_california_housing
+  data = fetch_california_housing()
+  df = pd.DataFrame(data['data'], columns=data['feature_names'])
+  df['price'] = data['target']
+- Convert the price and median income columns to their original units.
+  Note when the data is loaded, price is in 100s of thousands and median income is in 10s of thousands.
+
+Exercise 1 - Scatter plot
+- Plot a scatter plot using the longitude and latitude.
+- Colour each point by the median house value
+- Set the size of the points to be proportional to the population
+- Set an alpha of 0.2
+- Include a colorbar
+
+Exercise 2 - Data Exploration
+- Can you find any data integrity issues with the dataset?
+  You can try checking the price, AveRooms and AveBedrms columns
+
+Exercise 3 - Box plots
+- Plot a box plot of the average number of bedrooms and average number of rooms.
+  You can try using the df[...].plot.box() syntax.
+
+Exercise 4 - Histograms
+- Plot a histogram of the number of the median house prices. What do you see?
+- Plot a histogram of the number of rooms and the number of bedrooms on the same plot.
+  What do you see?
+
+Exercise 5 - Grouping
+- What is the average price by house age?
+
+Exercise 6 - Exploration
+- Explore the data and see if you can come up with any new insights.
+
+
+
+------------------------
+* Part 2 - Yahoo Finance
+------------------------
+Exercise 1 - Yahoo Finance Data (Suggested)
+- Imagine that you're working at a financial institution and the boss asks you to do the following:
+  - Find the 10 stocks with the largest growth rate since the beginning of the year.
+    Restrict your search to stocks with a current market cap of over 100,000.
+  - Plot the monthly returns of the stock.
+  - Note that returns = (price_curr_month - price_prev_month)/price_prev_month
+- What will you produce?

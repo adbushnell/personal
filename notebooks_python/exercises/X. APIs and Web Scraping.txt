@@ -1,0 +1,50 @@
+
+Exercise 1 - ISS
+- How fast is the international space station moving? (This can be obtained from the open-notify website).
+  Before using API's, it is a good idea to read the documentation.
+- What information can you get from the ISS API?
+- What are the endpoints offered? What are the parameters required?
+- Do a get request to each of the available API endpoints (there should be three).
+
+
+Exercise 2 - Coindesk (Optional)
+- Use the coindesk API to get the prices for bitcoin in CNY for all of of 2018.
+
+
+Exercise 3 - Various APIs
+- Try two of the APIs here:
+https://www.reddit.com/r/webdev/comments/3wrswc/what_are_some_fun_apis_to_play_with/
+
+
+Exercise 4 - Pokemon Moves
+- Use the Pokemon API to grab the data for your favourite Pokemon.
+  The URL is: 'https://pokeapi.co/api/v2/pokemon/{}'.
+- What moves are possible for your pokemon have?
+- What moves can be obtained by your pokemon through the 'level-up' move_learn_method?
+
+
+Exercise 5 - Rubik's Cube
+- Scrape the https://en.wikipedia.org/wiki/Rubik%27s_Cube page.
+- Grab all the headings in the document. Note that the headings can be identified by the h1, h2, etc tags.
+- Save all the images on the page to a directory. 
+- Write a generic function to save all images on a page to a directory.
+
+
+Exercise 6 - Subreddit JSON Scrape
+- Go to https://www.reddit.com/r/dataengineering/.json (or alternatively, your favourite subreddit).
+- Get a list of the post titles, ordered by the number of 'ups' (upvotes).
+
+
+Exercise 7 - Guardian EPL table
+- Scrape the EPL standings on The Guardian website:
+  https://www.theguardian.com/football/premierleague/table
+
+
+Exercise 8 - Adidas (Selenium)
+Use Selenium and BeautifulSoup to automate the following:
+- Go to https://www.adidas.co.uk.
+- In the search box, enter 'shoes'. Press enter.
+- (Optional) Sort by price (High - Low).
+- Store results of the first two pages in a nice data structure.
+  Make sure to include the name of the shoes along with the price.
+
