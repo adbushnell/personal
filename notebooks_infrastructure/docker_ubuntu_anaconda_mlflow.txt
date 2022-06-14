@@ -1,0 +1,68 @@
+Example Part 1. - Ubuntu with Anaconda
+--------------------------------------
+Here we will launch ubuntu image and install things manually using the shell. We will then save it into its own image.
+
+Pull the ubuntu image from the registry
+> docker pull ubuntu:latest
+
+Start the ubuntu container and run the shell
+> docker run -ti ubuntu:latest
+
+Check which shell we are using
+> echo $SHELL # prints out the current shell
+
+In the ubuntu shell, install the wget tool
+> apt-get update
+> apt-get -y install wget
+
+In the ubuntu shell, download Anaconda to the root folder. Check that it is downloaded.
+> wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+> ls
+
+Install Anaconda in the docker ubuntu container. Check that the files have been installed.
+> bash Anaconda3-2020.11-Linux-x86_64.sh -b (installs automatically without confirmation)
+> ls /root/anaconda3
+
+Remove the Anaconda installation file to free up space
+> rm Anaconda3-2020.11-Linux-x86_64.sh
+
+Exit the container.
+> ctrl+d (to exit container shell)
+> docker commit <container id>
+> docker tag <image id> ubuntu_anaconda3
+
+
+
+Example Part 2. - Creating a Deployment Image - MLflow Model
+------------------------------------------------------------
+Start from the ubuntu_anaconda3 image. Copy all our source code. Built the conda environments from the yaml files.
+
+Run the ubuntu_anaconda3 image in detached mode
+> docker run -d -ti --rm ubuntu_anaconda3
+> -d means detached. --rm removes the container on exit
+
+Copying the model_code folder into the root directory. Attach again.
+> docker cp ./model_code <container id>:/
+> docker attach <container id>
+> ls model_code
+
+Activate the conda environment and install packages
+> export PATH="/root/anaconda3/bin:$PATH"
+> conda env create --file env_flask.yml
+> conda env update --name mlflow-env --file ./model/conda.yaml
+
+Detach, commit, rename
+> ctrl+p, ctrl+q (to detach)
+> docker commit <container id>
+> docker tag <image id> mlflow_flask_example
+
+Start the mlflow_flask_example image, and kick off the web service on port 1337.
+> docker run -ti -p 1337:1337 mlflow_flask_example
+> cd /model_code
+> export PATH="/root/anaconda3/bin:$PATH"
+> source ~/anaconda3/etc/profile.d/conda.sh
+> conda activate mlflow-env
+> python ./mlflow_model_server.py
+
+Go to the MLFlow notebook, section 4 - this is how we test.
+Send over some data and you should see predictions.

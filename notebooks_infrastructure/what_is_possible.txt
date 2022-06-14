@@ -1,0 +1,6 @@
+Using the notebooks in this folder you can:
+
+- use MLFlow to run experiments
+- grab the best model
+- use this model in a flask app
+- hook up to a SQL database to store predictions

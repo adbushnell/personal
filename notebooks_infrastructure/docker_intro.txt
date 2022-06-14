@@ -1,0 +1,46 @@
+image: a snapshot of the filesystem at a point in time
+container: the machine in which the image is contained
+-- you can think of your computer's disk as a container
+-- the computer's os is it's image
+
+
+docker <command> --help
+
+docker image
+-- shows running images
+docker ps
+-- shows running processes
+
+docker pull hello-world
+-- pull an image
+docker run hello-world
+-- run an image
+
+docker container ls
+-- view running containers
+docker container ls -a
+-- view all previously run containers 
+
+docker stats <container id>
+-- view CPU and memory usage
+
+docker images
+-- view available images
+
+docker tag hello-world goodbye-world
+-- create a copy of an image with a different name
+
+docker rmi goodbye-world
+-- removes it
+
+docker rmi hello-world
+-- this doesn't work because there is a container referencing it
+
+docker ps -a
+-- see containers with id's
+
+docker rm 588736bb31b6
+-- this is the hello world container
+
+docker rmi hello-world
+-- now we can delete the image

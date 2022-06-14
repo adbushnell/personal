@@ -1,0 +1,14 @@
+Cloud
+- Get more AWS code snippets
+
+Front - End
+- Get plotly dash code snippets
+
+Testing
+- pytest, unittest and Tox snippets
+
+Database
+- get a dbt example
+
+MLFlow
+- SQLite and MLFLow connecting
