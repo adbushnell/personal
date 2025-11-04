@@ -1,0 +1,5 @@
+betfairlightweight[speed]==2.21.2
+matchbook==0.0.7 --this creates dependency conflicts with other installed packages
+inflection==0.5.1
+streamlit==1.27.2
+tweepy==4.12.1
